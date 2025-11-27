@@ -8,29 +8,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-struct student{
-    //학번, 이름, 학점 멤버 적절히 정의
-    int ID; //학번
-    char name[20]; //이름 20자
-    float grade; //점수
+#include <math.h>
+struct point{
+    int x;
+    int y;
 };
-
 int main(int argc, const char * argv[]) {
-    // 변수를 선언하고 적절한 값으로 초기화
-    struct student stud = {123, "yerim", 4.3};
-    struct student *stdPtr;
+    struct point p1, p2;
+    int xdiff, ydiff;
+    double dist;
     
-    stdPtr = &stud;
+    printf("input p1 coordinate (x y) : ");
+    scanf("%d %d", &p1.x, &p1.y);
     
-    // 학번, 이름, 학점을 다른 값으로 변경
-    stdPtr->ID = 123456;
-    strcpy(stud.name, "LEE");
-    stud.grade = 3.7;
+    printf("input p2 coordinate (x y) : ");
+    scanf("%d %d", &p2.x, &p2.y);
     
-    //학번, 이름, 학점 각각 출력
-    printf("ID : %i, name : %s, grade : %lf\n", stud.ID, stud.name, stud.grade);
+    xdiff = p1.x - p2.x;
+    ydiff = p1.y - p2.y;
+    dist = sqrt(xdiff*xdiff + ydiff*ydiff);
     
+    printf("distance : %lf\n", dist);
     return 0;
 }
 
